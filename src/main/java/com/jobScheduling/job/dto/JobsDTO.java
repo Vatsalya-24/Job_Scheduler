@@ -2,7 +2,7 @@ package com.jobScheduling.job.dto;
 
 
 import com.jobScheduling.job.config.ValidCron;
-import org.jspecify.annotations.NonNull;
+import com.jobScheduling.job.entity.JobStatus;
 import jakarta.validation.constraints.*;
 import java.sql.Timestamp;
 
@@ -45,6 +45,9 @@ public class JobsDTO {
     public Long getId() {
         return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -70,6 +73,10 @@ public class JobsDTO {
         return status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getCronExpression() {
         return cronExpression;
     }
@@ -80,6 +87,10 @@ public class JobsDTO {
 
     public Timestamp getNextFireTime() {
         return nextFireTime;
+    }
+
+    public void setNextFireTime(Timestamp nextFireTime) {
+        this.nextFireTime = nextFireTime;
     }
 
 

@@ -32,10 +32,11 @@ public class Jobs {
 
     private Timestamp nextFireTime;
 
-    public Jobs(String name, String cronExpression,String target, Timestamp nextFireTime) {
+    public Jobs(String name, String cronExpression,JobStatus status, String target, Timestamp nextFireTime) {
         this.name = name;
         this.cronExpression = cronExpression;
         this.target = target;
+        this.status = status;
         this.nextFireTime = nextFireTime;
     }
 
@@ -73,8 +74,8 @@ public class Jobs {
         return status;
     }
 
-    public void setStatus(JobStatus status) {
-        this.status = status;
+    public JobStatus setStatus(JobStatus status) {
+        return JobStatus.ACTIVE;
     }
 
     public Timestamp getCreatedAt() {

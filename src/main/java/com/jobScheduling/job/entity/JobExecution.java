@@ -22,15 +22,15 @@ public class JobExecution {
     private String errorMessage;
 
     @ManyToOne
-    @JoinColumn(name = "job_id_id")
-    private Jobs job_id;
+    @JoinColumn(name = "job_id")
+    private Jobs jobs;
 
-    public JobExecution(ExecutionStatus status, Timestamp startedAt, Timestamp finishedAt, String errorMessage, Jobs job_id) {
+    public JobExecution(ExecutionStatus status, Timestamp startedAt, Timestamp finishedAt, String errorMessage, Jobs jobs) {
         this.status = status;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
         this.errorMessage = errorMessage;
-        this.job_id = job_id;
+        this.jobs = jobs;
     }
 
     public JobExecution() {}
@@ -71,6 +71,14 @@ public class JobExecution {
         this.errorMessage = errorMessage;
     }
 
+    public void setJobs(Jobs jobs) {
+        this.jobs = jobs;
+    }
+
+    public Jobs getJobs() {
+        return jobs;
+    }
+
     @Override
     public String toString() {
         return "jobExecution{" +
@@ -79,7 +87,7 @@ public class JobExecution {
                 ", startedAt=" + startedAt +
                 ", finishedAt=" + finishedAt +
                 ", errorMessage='" + errorMessage + '\'' +
-                ", job_id=" + job_id +
+                ", job_id=" + jobs.getId()+
                 '}';
     }
 }
